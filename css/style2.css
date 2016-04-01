@@ -3,6 +3,7 @@ html {
 	margin-bottom: 5%;
 	*/
 	min-height: 100%;
+	overflow-y: scroll;
 }	
 
 body {
@@ -150,6 +151,14 @@ hr.beforeContainer {
 
 .preview img, .otherProjects img {
 	width: 32%;
+}
+
+#main, #wrap {
+	height: 100%;
+}
+
+.previewProjects {
+	height: 100%;
 }
 
 .previewProjects a:link, a {
@@ -321,9 +330,6 @@ footer {
 	margin-top: 1.25%;
 }
 
-.previewProjects img {
-	width: 100%;
-}
 
 .btmFooter {
 	margin-top: 5%;
@@ -331,7 +337,7 @@ footer {
 	height: 65px;
 	float: right;
 	background:#15407d;
-	position: absolute;
+	/*position: absolute;*/
 	left:0 ;
 	bottom: 0;
 
@@ -358,7 +364,36 @@ footer {
 	.btmFooter a:hover {
 		background: none;
 	}
-	
+
+/* CSS for <details> and <summary> */
+
+details {
+	border: 0px solid red; 
+	padding: 10px 0;
+}
+
+details p {
+	color: blue;
+}	
+
+details img {
+	width: 98%;
+	padding: 5px;
+	border: 1px solid #c5c5c5;
+	margin: 10px 0;
+}
+
+summary {
+	cursor: pointer;
+	color: #282828;
+	opacity: 0.8;
+	transition: opacity 0.5s ease;	
+	-webkit-user-select: none;
+}
+
+summary:hover {
+	opacity: 1;
+}
 
 
 /* accommodates between 768 to 1024 (iPad Portrait and Landscape) */
@@ -413,7 +448,9 @@ footer {
 
 /* accommodates up to 767 for iPhone */
 @media (max-width:665px) {
-	
+	body {
+		margin-bottom: 35px;
+	}
 	.topNav, topIntro, topNav ul li {
 		font-size: 70%;
 		padding-right:;
@@ -511,6 +548,18 @@ footer {
 		z-index: -999;
 	}
 
+	.previewProjects {
+		margin-bottom: 65px;
+		height: 100%;
+	}
 	
+	/*
+	.btmFooter {
+		position: absolute;
+		height: 65px;
+		bottom: 0;
+		left: 0;
+	}
+	*/
 	
 }
