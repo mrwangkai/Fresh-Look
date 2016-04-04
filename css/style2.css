@@ -266,13 +266,53 @@ details {
 ::-webkit-details-marker { display:none; }
 
 details p {
-	color: blue;
 }	
+
+/* animation for content of summary in details. */
+@keyframes slideDown {
+	0% {
+	opacity: 0;
+	transform:translateY(30px); /*or use height:;*/
+	}
+	100% {
+	opacity: 1;
+	transform:translateY(0);
+	}
+}
+
+details[open] > div {
+	animation-name: slideDown;
+	animation-duration: 250ms;
+	animation-timing-function:cubic-bezier(0, 0, 1, 0);
+	overflow:hidden;
+	}
+
+/*	
+@keyframes slideUp {
+	100% {
+		opacity:1;
+		height: 100%;
+	}
+	0% {
+		opacity:0;
+		height:0;
+	}
+}
+
+details[closed] > div {
+	animation-name: slideUp;
+	animation-duration: 200ms;
+	animation-timing-function:cubic-bezier(0, 0, 1, 0);
+	overflow:hidden;	
+}
+*/
+
+
 
 details img {
 	width: 98%;
-	padding: 5px;
-	border: 1px solid #c5c5c5;
+	padding: 2px;
+	border: 1px solid #dedede;
 	margin: 10px 0;
 }
 
@@ -285,6 +325,7 @@ summary {
 	-webkit-user-select: none;
 	outline: none;
 	padding: 15px 5px;
+	height: 100%;
 }
 
 details[open]>summary:hover, summary:hover {
@@ -296,11 +337,25 @@ details[open]>summary {
 	background-color: #deeeff;
 	color: #000;
 }
+/* test transition for details and p details[closed]>p {
+	transition: opacity 10s ease-in-out;
+opacity:0;}
+
+details[open]>p {
+	color: red;
+opacity:1;}
+
+*/
 
 summary:before {
-    content: "\2722"; /* the new icon */
-    color: #696f7c;
-    margin-right: 5px;
+    content:url(../images/closed.png);
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+
+details[open]>summary:before {
+    content:url(../images/opened.png);
 }
 
 
